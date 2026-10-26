@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --clr-bg: #181818;
+    --clr-white: white;
+    --clr-tomato: #3a0056;
+}
+
+body {
+    font-family: Rubik;
+    background-color: var(--clr-bg);
+}
+
+.container {
+    display: grid;
+    grid-template: 70px auto / auto;
+    grid-template-areas:
+        'header'
+        'main-content';
+}
+
+.header {
+    grid-area: header;
+}
+
+.header {
+    background-color: var(--clr-tomato);
+    color: var(--clr-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.main-content {
+    grid-column: main-content;
+}
+
+.main-content {
+    display: grid;
+    grid-template: repeat(1, 5fr) / repeat(5, 1fr);
+    gap: 15px;
+    color: var(--clr-white);
+    padding: 25px;
+}
+
+.card {
+    border: 3px solid var(--clr-white);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.font-page {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 238px;
+}
+
+.info {
+    border: 3px solid var(--clr-white);
+    border-radius: 8px;
+    padding: 8px;
+}
