@@ -4,16 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1ib29rIHByZXZpZXctaWNvbiI+PHBhdGggZD0iTTQgMTkuNXYtMTVBMi41IDIuNSAwIDAgMSA2LjUgMkgxOWExIDEgMCAwIDEgMSAxdjE4YTEgMSAwIDAgMS0xIDFINi41YTEgMSAwIDAgMSAwLTVIMjAiLz48L3N2Zz4=" type="image/x-icon">
     <title>Odin Library</title>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book preview-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
-            <h1>Odin Libary</h1>
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book preview-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+                <h1>Odin Libary</h1>
+            </div>
+            <div class="buttons-1">
+                <button id="new-book">New Book</button>
+            </div>
         </div>
         <div class="main-content" id="library"></div>
     </div>
+    <dialog id="book-dialog">
+        <form id="book-form">
+            <fieldset>
+                <legend>Add New Books</legend>
+                <div>
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" required>
+                </div>
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="Moby Dick" required>
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" placeholder="Herman Melville" required>
+                </div>
+                <div>
+                    <label for="year">Year</label>
+                    <input type="number" id="year" name="year" placeholder="1851" required>
+                </div>
+                <div>
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages" placeholder="635" min="1" required>
+                </div>
+                <div>
+                    <label for="language">Language</label>
+                    <input type="text" id="language" placeholder="Korean" name="language" required>
+                </div>
+                <div>
+                    <label for="read">Read or not</label>
+                    <select id="read" name="read" required>
+                        <option value="yes">yes</option>
+                        <option value="no">no</option>
+                    </select>
+                </div> 
+            </fieldset>
+            <div class="buttons-2">
+                <button id="add-book" type="submit">Add Book</button>
+                <button id="cancel" type="button">Cancel</button>
+            </div>
+        </form>
+    </dialog>
     <script src="app.js"></script>
 </body>
 </html>
