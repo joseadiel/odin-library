@@ -19,7 +19,7 @@ function addBookToLibrary(image, title, author, year, pages, language, read) {
     return book;
 }
 
-addBookToLibrary('images/el-principito.jpeg', 'El principito', 'Antoine de Saint-Exupéry', 1943, 140, 'Spanish', 'yes');
+addBookToLibrary('images/el-principito.jpg', 'El principito', 'Antoine de Saint-Exupéry', 1943, 140, 'Spanish', 'yes');
 addBookToLibrary('images/don-quijote-de-la-mancha.webp', 'Don Quijote de la Mancha', 'Miguel de Cervantes', 1605, 1424, 'Spanish', 'no');
 addBookToLibrary('images/cien-años-de-soledad.jpg', 'Cien años de soledad', 'Gabriel García Márquez', 1967, 496, 'Spanish', 'yes');
 addBookToLibrary('images/1984.jpg', '1984', 'George Orwell', 1949, 396, 'Spanish', 'yes');
@@ -52,10 +52,21 @@ function displayBooks() {
             <p>Read: ${book.read}</p>
         `;
 
+        const removeBook = document.createElement('button');
+        removeBook.setAttribute('id', 'remove-book');
+        removeBook.textContent = 'Remove';
+
+        removeBook.addEventListener('click', () => {
+            const index = myLibrary.findIndex(book => book.id === card.dataset.id);
+            myLibrary.splice(index, 1);
+            card.remove();
+        });
+
         library.appendChild(card);
         card.appendChild(fontPage);
         fontPage.appendChild(img);
         card.appendChild(info);
+        card.appendChild(removeBook);
     });
 }
 

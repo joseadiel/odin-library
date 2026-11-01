@@ -96,7 +96,6 @@ img {
 }
 
 .info {
-    background-color: var(--clr-dark-slate-blue);
     border: 3px solid var(--clr-tomate);
     border-radius: 8px;
     padding: 8px;
@@ -188,5 +187,10 @@ select {
 
 #add-book {
     background-color: var(--clr-tomate);
+    color: var(--clr-white);
+}
+
+#remove-book {
+    background-color: var(--clr-dark-slate-blue);
     color: var(--clr-white);
 }
