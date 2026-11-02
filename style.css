@@ -190,7 +190,18 @@ select {
     color: var(--clr-white);
 }
 
+.buttons-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
 #remove-book {
     background-color: var(--clr-dark-slate-blue);
+    color: var(--clr-white);
+}
+
+#toggle-read {
+    background-color: var(--clr-tomate);
     color: var(--clr-white);
 }

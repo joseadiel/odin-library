@@ -11,6 +11,10 @@ class Book {
         this.language = language;
         this.read = read;
     }
+
+    toggleRead() {
+        this.read = !this.read;
+    }
 }
 
 function addBookToLibrary(image, title, author, year, pages, language, read) {
@@ -19,11 +23,11 @@ function addBookToLibrary(image, title, author, year, pages, language, read) {
     return book;
 }
 
-addBookToLibrary('images/el-principito.jpg', 'El principito', 'Antoine de Saint-Exupéry', 1943, 140, 'Spanish', 'yes');
-addBookToLibrary('images/don-quijote-de-la-mancha.webp', 'Don Quijote de la Mancha', 'Miguel de Cervantes', 1605, 1424, 'Spanish', 'no');
-addBookToLibrary('images/cien-años-de-soledad.jpg', 'Cien años de soledad', 'Gabriel García Márquez', 1967, 496, 'Spanish', 'yes');
-addBookToLibrary('images/1984.jpg', '1984', 'George Orwell', 1949, 396, 'Spanish', 'yes');
-addBookToLibrary('images/pedro-páramo.jpg', 'Pedro Páramo', 'Juan Rulfo', 1955, 157, 'Spanish', 'yes');
+addBookToLibrary('images/el-principito.jpg', 'El principito', 'Antoine de Saint-Exupéry', 1943, 140, 'Spanish', true);
+addBookToLibrary('images/don-quijote-de-la-mancha.webp', 'Don Quijote de la Mancha', 'Miguel de Cervantes', 1605, 1424, 'Spanish', false);
+addBookToLibrary('images/cien-años-de-soledad.jpg', 'Cien años de soledad', 'Gabriel García Márquez', 1967, 496, 'Spanish', true);
+addBookToLibrary('images/1984.jpg', '1984', 'George Orwell', 1949, 396, 'Spanish', true);
+addBookToLibrary('images/pedro-páramo.jpg', 'Pedro Páramo', 'Juan Rulfo', 1955, 157, 'Spanish', false);
 
 function displayBooks() {
     const library = document.getElementById('library');
@@ -52,9 +56,16 @@ function displayBooks() {
             <p>Read: ${book.read}</p>
         `;
 
+        const buttons3 = document.createElement('div');
+        buttons3.classList.add('buttons-3');
+
         const removeBook = document.createElement('button');
         removeBook.setAttribute('id', 'remove-book');
         removeBook.textContent = 'Remove';
+
+        const toggleRead = document.createElement('button');
+        toggleRead.setAttribute('id', 'toggle-read');
+        toggleRead.textContent = book.read ? 'Mark as unread' : 'Mark as read';
 
         removeBook.addEventListener('click', () => {
             const index = myLibrary.findIndex(book => book.id === card.dataset.id);
@@ -62,11 +73,18 @@ function displayBooks() {
             card.remove();
         });
 
+        toggleRead.addEventListener('click', () => {
+            book.toggleRead();
+            displayBooks();
+        });
+
         library.appendChild(card);
         card.appendChild(fontPage);
         fontPage.appendChild(img);
         card.appendChild(info);
-        card.appendChild(removeBook);
+        card.appendChild(buttons3);
+        buttons3.appendChild(removeBook);
+        buttons3.appendChild(toggleRead);
     });
 }
 
